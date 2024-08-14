@@ -1,0 +1,256 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #006400;
+    color: #333;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease;
+}
+
+header {
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+}
+
+header.sticky {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+header .logo img {
+    width: 80px;
+}
+
+.nav {
+    position: relative;
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0dc71d;
+}
+
+/* Burger Menu Active State */
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-links.open {
+        max-height: 300px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 64, 0, 0.4), rgba(0, 64, 0, 0.4)), url('https://static.vecteezy.com/system/resources/previews/013/967/697/non_2x/greeting-pakistan-independence-day-14-august-background-design-with-arabic-calligraphy-flag-and-floral-pattern-for-card-banner-wallpaper-brosur-cover-and-decoration-free-vector.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 200px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 15px 30px;
+    background: #006400;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: #004c00;
+    transform: scale(1.05);
+}
+
+.about {
+    display: flex;
+    padding: 50px;
+    background-color: #fff;
+    margin: 50px auto;
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+.about img {
+    width: 50%;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.about-text.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.events {
+    background-color: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.event-card.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card.glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+}
+
+.gallery {
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+}
+
+.carousel img {
+    scroll-snap-align: start;
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.05);
+}
+.footer {
+    background-color: #006400;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    color: #f5eded;
+}
